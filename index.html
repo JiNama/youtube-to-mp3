@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>YouTube To MP3</title>
+  <link rel="stylesheet" type="text/css" href="./main.css" />
+  <script src="yt.js"></script>
+</head>
+
+<body>
+
+  <div class="grid">
+    <div class="settings">
+      <input type="button" class="convert-button-settings" onclick="clicked()"></input>
+    </div>
+    <div class="textbox">
+      <input id="textbox" placeholder="https://www.youtube.com/watch?v=wxPe2X0rx5Y" onfocus="emptyPlaceholder()" onfocusout="bringitbackYo()" class="textboxmain" />
+    </div>
+    <div class="button">
+      <button class="convert-button" onclick="convert()">Convert!</button>
+    </div>
+    <div class="footer">
+
+    </div>
+  </div>
+
+  <input type="file" id="browse" style="display:none" />
+
+  <script>
+    require('./renderer.js');
+  </script>
+</body>
+
+</html>
