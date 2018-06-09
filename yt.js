@@ -26,7 +26,7 @@ function convert() {
       ytdl(text, {
         quality: 'highestaudio',
         filter: 'audioonly'
-      }).pipe(fs.createWriteStream(path + "/" + title + '.aac'));
+      }).pipe(fs.createWriteStream(path + "/" + title + '.mp3'));
       ytdl(text).on('response', (res) => {
         var totalSize = res.headers['content-length'];
         var dataRead = 0;
