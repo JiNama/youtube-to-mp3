@@ -5,7 +5,10 @@
   "description": "Simple YouTube to MP3 converter",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=icon.ico --prune=true --out=release-builds",
+    "package-win": "electron-packager . youtube-to-mp3 --overwrite --asar=true --platform=win32 --arch=ia32 --icon=icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"YouTube To MP3 Converter\"",
+    "package-linux": "electron-packager . youtube-to-mp3 --overwrite --asar=true --platform=linux --arch=x64 --icon=icon.ico --prune=true --out=release-builds"
   },
   "repository": "https://github.com/jinama/youtube-to-mp3.git",
   "keywords": [
