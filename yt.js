@@ -1,5 +1,6 @@
 const fs = require('fs');
 const ytdl = require('ytdl-core');
+var path = "";
 
 function emptyPlaceholder() {
   document.getElementById('textbox').placeholder = "";
@@ -23,7 +24,19 @@ function convert() {
       ytdl(text, {
         quality: 'highestaudio',
         filter: 'audioonly'
-      }).pipe(fs.createWriteStream(title + '.mp3'));
+      }).pipe(fs.createWriteStream(path + "/" + title + '.mp3'));
+      ytdl(text).on('response', (res) => {
+        var totalSize = res.headers['content-length'];
+        var dataRead = 0;
+        res.on('data', function(data) {
+          dataRead += data.length;
+          var percent = dataRead / totalSize;
+          process.stdout.write((percent * 100).toFixed(2) + '% ');
+        });
+        res.on('end', function() {
+          process.stdout.write('\n');
+        });
+      });
     });
   }
 }
@@ -40,4 +53,36 @@ function validateYouTubeUrl(inputURL) {
       return false;
     }
   }
+}
+
+function clicked() {
+  document.getElementById('set').style.animation = 'settingsslide 1s';
+  document.getElementById('blur').style.animation = 'bluring 1s';
+  setTimeout(() => {
+    document.getElementById('set').style.left = '60%';
+    document.getElementById('blur').style.filter = 'blur(3px)';
+  }, 900);
+  document.getElementById('downloadInputBox').value = path;
+}
+
+function closeitboi() {
+  document.getElementById('set').style.animation = 'settingsslideback 1s';
+  document.getElementById('blur').style.animation = 'bluringback 1s';
+  setTimeout(() => {
+    document.getElementById('set').style.left = '100%';
+    document.getElementById('blur').style.filter = 'blur(0px)';
+  }, 900);
+}
+
+window.onload = function() {
+  document.getElementById('musicUploader').addEventListener('change', function(e) {
+    if (this.value != '') {
+      e.preventDefault();
+      e.stopPropagation();
+      path = this.files[0].path;
+      document.getElementById('downloadInputBox').value = this.files[0].path;
+      var dl = fs.createWriteStream('downloadlocation.txt');
+      dl.write(path);
+    }
+  });
 }

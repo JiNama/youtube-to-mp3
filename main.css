@@ -12,6 +12,7 @@ body {
   height: inherit;
   width: inherit;
   background: linear-gradient(135deg, #C56CD6 0%, #3425AF 100%);
+  box-shadow: inset 40px 0px 300px 0px rgba(0, 0, 0, 1);
 }
 
 .grid {
@@ -109,4 +110,151 @@ body {
   display: grid;
   justify-content: end;
   padding: 10px;
+}
+
+p {
+  margin: 0;
+  font-family: Tajawal;
+  text-align: center;
+}
+
+.settingsContainer {
+  position: fixed;
+  width: 40%;
+  height: 100%;
+  top: 0;
+  left: 100%;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 2;
+  box-shadow: -2px 0px 200px 0px #000000;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-rows: auto;
+  padding: 10px;
+  background: linear-gradient(135deg, #E3E3E3 0%, #5D6874 100%);
+}
+
+@keyframes settingsslide {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 60%;
+  }
+}
+
+@keyframes bluring {
+  0% {
+    filter: blur(0);
+  }
+  100% {
+    filter: blur(3px);
+  }
+}
+
+@keyframes settingsslideback {
+  0% {
+    left: 60%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes bluringback {
+  0% {
+    filter: blur(3px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
+
+.convert-button-save {
+  display: inline-block;
+  color: #666;
+  background-color: #eee;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-bottom-width: 3px;
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  outline: 0;
+}
+
+.convert-button-save:hover {
+  background-color: #e3e3e3;
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+.convert-button-save:active {
+  background-color: #CCC;
+  border-color: rgba(0, 0, 0, 0.8);
+}
+
+.settingsOptions {
+  display: grid;
+  justify-content: center;
+  align-content: start;
+  font-size: 25px;
+  color: white;
+  text-shadow: 1px 1px 0 black;
+}
+
+.saveButton {
+  display: grid;
+  justify-content: center;
+  align-items: end;
+  padding-bottom: 50px;
+}
+
+.convert-button-settings-browse {
+  background-color: #eee;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border: 0px solid rgba(0, 0, 0, 0.3);
+  border-bottom-width: 3px;
+  width: 30px;
+  height: 30px;
+  outline: 0;
+}
+
+.convert-button-settings-browse:hover {
+  background-color: #e3e3e3;
+  border-color: rgba(0, 0, 0, 0.5);
+}
+
+.convert-button-settings-browse:active {
+  background-color: #CCC;
+  border-color: rgba(0, 0, 0, 0.8);
+}
+
+.textboxbrowse {
+  background-color: #eee;
+  border-color: rgba(0, 0, 0, 0.3);
+  border-top-width: 0;
+  border-bottom-width: 3px;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  width: 300px;
+  height: 17px;
+  outline: 0;
+  padding: 5px;
+}
+
+.browsestuff {
+  padding-top: 10px;
 }

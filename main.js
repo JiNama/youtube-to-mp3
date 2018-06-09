@@ -67,20 +67,3 @@ app.on('activate', function() {
     createWindow()
   }
 })
-
-var menu = Menu.buildFromTemplate([{
-  label: 'Settings',
-  submenu: [{
-    label: 'Download Location',
-    click: () => {
-      let settingsWindow = new BrowserWindow({
-        width: 400,
-        height: 600,
-        frame: false,
-        resizable: false
-      });
-    }
-  }]
-}]);
-
-Menu.setApplicationMenu(menu);

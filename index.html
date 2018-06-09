@@ -8,9 +8,9 @@
   <script src="yt.js"></script>
 </head>
 
-<body>
+<body id="body">
 
-  <div class="grid">
+  <div class="grid" id="blur">
     <div class="settings">
       <input type="button" class="convert-button-settings" onclick="clicked()"></input>
     </div>
@@ -25,10 +25,24 @@
     </div>
   </div>
 
-  <input type="file" id="browse" style="display:none" />
+  <div class="settingsContainer" id="set">
+    <div class="settingsOptions">
+      <p><strong>Download Location:</strong></p>
+      <div class="browsestuff">
+        <input id="downloadInputBox" placeholder="" class="textboxbrowse" readonly />
+        <input type="file" id="musicUploader" webkitdirectory style="display: none;" />
+        <input type="button" value="..." onclick="document.getElementById('musicUploader').click();" class="convert-button-settings-browse" />
+      </div>
+    </div>
+    <div class="saveButton">
+      <button class="convert-button-save" onclick="closeitboi()">Save</button>
+    </div>
+  </div>
 
   <script>
     require('./renderer.js');
+  </script>
+  <script>
   </script>
 </body>
 
