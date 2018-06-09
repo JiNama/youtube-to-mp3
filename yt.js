@@ -26,18 +26,13 @@ function convert() {
       ytdl(text, {
         quality: 'highestaudio',
         filter: 'audioonly'
-      }).pipe(fs.createWriteStream(path + "/" + title + '.mp3'));
-      ytdl(text).on('response', (res) => {
-        var totalSize = res.headers['content-length'];
-        var dataRead = 0;
-        res.on('data', function(data) {
-          dataRead += data.length;
-          var percent = dataRead / totalSize;
-          process.stdout.write((percent * 100).toFixed(2) + '% ');
-        });
-        res.on('end', function() {
-          process.stdout.write('\n');
-        });
+      }).pipe(fs.createWriteStream(path + "/" + title + '.aac'));
+      var song = ytdl(text);
+      song.on('progress', (chunk, downloaded, downloadlength) => {
+        console.log(downloaded / downloadlength);
+      });
+      song.on('end', () => {
+        console.log('done');
       });
     });
   }
