@@ -12,7 +12,7 @@ body {
   height: inherit;
   width: inherit;
   background: linear-gradient(135deg, #C56CD6 0%, #3425AF 100%);
-  box-shadow: inset 40px 0px 300px 0px rgba(0, 0, 0, 1);
+  box-shadow: inset 50px 0px 300px 0px rgba(0, 0, 0, 1);
 }
 
 .grid {

@@ -18,13 +18,15 @@ function convert() {
     alert('You must enter a valid YouTube link.');
   } else {
     var title = "";
+
+    //ALL YTDL STUFF
     ytdl.getInfo(text, function(err, info) {
       if (err) throw err;
       title = info.title;
       ytdl(text, {
         quality: 'highestaudio',
         filter: 'audioonly'
-      }).pipe(fs.createWriteStream(path + "/" + title + '.mp3'));
+      }).pipe(fs.createWriteStream(path + "/" + title + '.aac'));
       ytdl(text).on('response', (res) => {
         var totalSize = res.headers['content-length'];
         var dataRead = 0;
@@ -85,4 +87,12 @@ window.onload = function() {
       dl.write(path);
     }
   });
+  fs.readFile('downloadlocation.txt', 'utf8', (err, data) => {
+    if (err) throw err;
+    if (data == '' || data == null) {
+      path = __dirname + "\\downloads";
+    } else {
+      path = data;
+    }
+  })
 }
