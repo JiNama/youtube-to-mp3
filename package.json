@@ -1,5 +1,6 @@
 {
   "name": "youtube-to-mp3",
+  "productName": "YouTube to MP3 converter",
   "version": "1.0.0",
   "description": "Simple YouTube to MP3 converter",
   "main": "main.js",
@@ -17,14 +18,13 @@
   "author": "Josh",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^2.0.0"
+    "electron": "^2.0.2",
+    "electron-packager": "^12.1.0"
   },
   "dependencies": {
-    "express": "^4.16.3",
     "fs": "0.0.1-security",
     "path": "^0.12.7",
     "url": "^0.11.0",
-    "youtube-to": "^1.1.4",
     "ytdl-core": "0.20.4"
   }
 }
